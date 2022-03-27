@@ -1,0 +1,2 @@
+class MQError(Exception):
+    pass

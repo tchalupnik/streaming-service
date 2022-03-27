@@ -1,0 +1,33 @@
+version: "3.0"
+services:
+  streaming_service:
+    build: .
+    volumes:
+      - .:/app
+    env_file: .env
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  nginx:
+    image: nginx
+    restart: unless-stopped
+    tty: true
+    env_file: .env
+    ports:
+      - "${PORT}:8080"
+    volumes:
+      - ./dev/nginx:/etc/nginx/templates
+    depends_on:
+      - streaming_service
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 30s
+      retries: 3

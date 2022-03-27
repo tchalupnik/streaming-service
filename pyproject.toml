@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "focal"
+version = "1.0.0"
+description = ""
+authors = ["Tomasz Chalupnik <tchalupnik@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+environs = "==9.2.0"
+fastapi = "==0.75.0"
+fastapi-utils = "==0.2.1"
+pydantic = "^1.9.0"
+starlette = "==0.17.1"
+uvicorn = { extras = ["standard"], version = "0.17.6" }
+aio-pika = "^7.1.1"
+
+[tool.poetry.scripts]
+run-server = "focal.main:run_server"
+
+[tool.poetry.dev-dependencies]
+black = "^22.1.0"
+flake8 = "^4.0.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
