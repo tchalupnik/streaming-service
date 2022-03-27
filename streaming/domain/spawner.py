@@ -15,7 +15,6 @@ class StreamingSpawner:
     def __init__(self):
         self.ws_manager: WSConnectionManager = WSConnectionManagerFactory.create()
         self.publisher = StreamingPublisher()
-        self.event_loop = asyncio.get_event_loop()
 
     async def spawn(self, time_until: datetime, name: str):
         logger.info(f"Spawning with attributes: name {name}, time_until {time_until}")
