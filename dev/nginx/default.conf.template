@@ -1,5 +1,5 @@
 upstream web {
-    server focal:${PORT}; # for a web port socket (we'll use this first)
+    server streaming_service:${PORT}; # for a web port socket (we'll use this first)
 }
 
 server {

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "focal"
+name = "streaming"
 version = "1.0.0"
 description = ""
 authors = ["Tomasz Chalupnik <tchalupnik@gmail.com>"]
@@ -15,7 +15,7 @@ uvicorn = { extras = ["standard"], version = "0.17.6" }
 aio-pika = "^7.1.1"
 
 [tool.poetry.scripts]
-run-server = "focal.main:run_server"
+run-server = "streaming.main:run_server"
 
 [tool.poetry.dev-dependencies]
 black = "^22.1.0"
